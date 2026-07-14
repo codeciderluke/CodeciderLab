@@ -88,12 +88,6 @@ export const translations = {
     about_mission_title: 'Our Mission',
     about_mission:
       'Codecider Lab is an open platform that provides innovative features and creative ideas as libraries and demo code across diverse fields. With AI, we turn your ideas into code and services.',
-    about_how_title: 'How We Operate',
-    about_ads: 'Online Ads',
-    about_ads_desc: 'Ads on the website cover the cost of running the service.',
-    about_donation: 'Donations',
-    about_donation_desc:
-      'Voluntary support from users and the community helps us build better services.',
     about_future_title: 'Future Plans (Premium)',
     about_source: 'Full Source Code',
     about_source_desc:
@@ -191,12 +185,6 @@ export const translations = {
     about_mission_title: '미션',
     about_mission:
       'Codecider Lab은 다양한 분야의 혁신 기능과 창의적인 아이디어를 라이브러리와 데모 코드로 제공하는 오픈 플랫폼입니다. AI와 함께, 당신의 아이디어를 코드로, 서비스로 만듭니다.',
-    about_how_title: '운영 방식',
-    about_ads: '온라인 광고',
-    about_ads_desc: '웹사이트 내 광고를 통해 서비스 운영 비용을 충당합니다.',
-    about_donation: '후원금',
-    about_donation_desc:
-      '사용자와 커뮤니티의 자발적인 후원으로 더 좋은 서비스를 만들어갑니다.',
     about_future_title: '향후 계획 (유료 서비스)',
     about_source: '전체 소스코드 판매',
     about_source_desc:

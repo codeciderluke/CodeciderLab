@@ -36,24 +36,6 @@ export default function About() {
 
         <div className="about-columns">
           <div className="about-block">
-            <h2>{t('about_how_title')}</h2>
-            <div className="about-item">
-              <span className="about-icon green">AD</span>
-              <div>
-                <h3>{t('about_ads')}</h3>
-                <p>{t('about_ads_desc')}</p>
-              </div>
-            </div>
-            <div className="about-item">
-              <span className="about-icon green">♥</span>
-              <div>
-                <h3>{t('about_donation')}</h3>
-                <p>{t('about_donation_desc')}</p>
-              </div>
-            </div>
-          </div>
-
-          <div className="about-block">
             <h2>{t('about_future_title')}</h2>
             <div className="about-item">
               <span className="about-icon purple">◆</span>
