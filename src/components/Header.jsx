@@ -11,7 +11,7 @@ export default function Header() {
         <Link to="/" className="brand">
           <Logo size={40} />
           <span className="brand-text">
-            <strong>Codecider</strong>
+            <strong>{t('org_name')}</strong>
           </span>
         </Link>
 
