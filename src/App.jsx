@@ -1,5 +1,6 @@
 import { Routes, Route, useLocation } from 'react-router-dom'
 import { useEffect } from 'react'
+import { trackPageView } from './analytics'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import Home from './pages/Home'
@@ -19,10 +20,19 @@ function ScrollToTop() {
   return null
 }
 
+function AnalyticsTracker() {
+  const { pathname, search } = useLocation()
+  useEffect(() => {
+    trackPageView(pathname + search)
+  }, [pathname, search])
+  return null
+}
+
 export default function App() {
   return (
     <div className="app-shell">
       <ScrollToTop />
+      <AnalyticsTracker />
       <Header />
       <main>
         <Routes>
