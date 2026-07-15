@@ -38,7 +38,7 @@ export default function Home() {
 
           <div className="hero-visual" aria-hidden="true">
             <div className="bottle-float">
-              <Logo size={380} animated />
+              <Logo size={150} animated />
             </div>
           </div>
         </div>

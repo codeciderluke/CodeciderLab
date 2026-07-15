@@ -983,9 +983,8 @@ h1, h2, h3, h4 {
     order: -1;
   }
 
-  .bottle-float svg {
-    width: 210px;
-    height: 280px;
+  .bottle-float .logo-img {
+    height: 110px;
   }
 
   .header-inner {
