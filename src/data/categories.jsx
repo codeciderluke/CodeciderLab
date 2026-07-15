@@ -43,9 +43,9 @@ export const categories = [
     color: '#e8913a',
     icon: (
       <svg {...iconProps}>
-        <path d="M12 4L2.5 8.5 12 13l9.5-4.5z" />
-        <path d="M6 10.8v4.7c0 1.4 2.7 2.9 6 2.9s6-1.5 6-2.9v-4.7" />
-        <path d="M21.5 8.5v5.5" />
+        <circle cx="12" cy="12" r="9" />
+        <path d="M12 11v5.5" />
+        <path d="M12 7.5h.01" />
       </svg>
     ),
   },
