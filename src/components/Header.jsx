@@ -10,9 +10,6 @@ export default function Header() {
       <div className="container header-inner">
         <Link to="/" className="brand">
           <Logo size={40} />
-          <span className="brand-text">
-            <strong>{t('org_name')}</strong>
-          </span>
         </Link>
 
         <nav className="main-nav">

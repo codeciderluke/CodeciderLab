@@ -4,7 +4,7 @@ import { categories } from '../data/categories'
 import { software } from '../data/software'
 import CategoryCard from '../components/CategoryCard'
 import SoftwareCard from '../components/SoftwareCard'
-import Logo from '../components/Logo'
+import BottleLogo from '../components/BottleLogo'
 
 export default function Home() {
   const { t } = useLang()
@@ -38,7 +38,7 @@ export default function Home() {
 
           <div className="hero-visual" aria-hidden="true">
             <div className="bottle-float">
-              <Logo size={150} animated />
+              <BottleLogo size={380} animated />
             </div>
           </div>
         </div>
