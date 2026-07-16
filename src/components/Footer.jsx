@@ -10,10 +10,7 @@ export default function Footer() {
       <div className="container footer-inner">
         <div className="footer-brand">
           <Logo size={28} />
-          <div>
-            <strong>{t('org_name')}</strong>
-            <p>{t('footer_slogan')}</p>
-          </div>
+          <p>{t('footer_slogan')}</p>
         </div>
         <p className="footer-copy">
           © {year} {t('org_name')}. {t('footer_rights')}
