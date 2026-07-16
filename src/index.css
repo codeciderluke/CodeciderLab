@@ -111,7 +111,7 @@ h1, h2, h3, h4 {
   display: flex;
   align-items: center;
   gap: 2rem;
-  height: 66px;
+  height: 76px;
 }
 
 .brand {
