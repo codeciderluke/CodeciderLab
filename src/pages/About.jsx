@@ -1,4 +1,5 @@
 import { useLang } from '../i18n/LanguageContext'
+import collabIllustration from '../assets/collab.svg'
 
 export default function About() {
   const { t } = useLang()
@@ -36,6 +37,16 @@ export default function About() {
           <li>{t('about_values_2')}</li>
           <li>{t('about_values_3')}</li>
         </ul>
+
+        <div className="about-collab">
+          <img
+            src={collabIllustration}
+            alt={t('about_collab_title')}
+            className="about-collab-img"
+          />
+          <h2>{t('about_collab_title')}</h2>
+          <p>{t('about_collab_desc')}</p>
+        </div>
       </div>
     </section>
   )

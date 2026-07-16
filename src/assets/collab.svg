@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 430" width="760" height="430">
+  <defs>
+    <linearGradient id="screen" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#12233f"/>
+      <stop offset="1" stop-color="#0a1526"/>
+    </linearGradient>
+    <linearGradient id="deskG" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#24406b"/>
+      <stop offset="1" stop-color="#1a2b4a"/>
+    </linearGradient>
+  </defs>
+
+  <!-- soft backdrop -->
+  <circle cx="380" cy="205" r="168" fill="#eaf6e2"/>
+  <circle cx="380" cy="205" r="168" fill="none" stroke="#3faf4e" stroke-opacity="0.18" stroke-width="2" stroke-dasharray="4 10"/>
+
+  <!-- floating code marks -->
+  <text x="120" y="96" font-family="Consolas, monospace" font-size="30" font-weight="700" fill="#3faf4e" opacity="0.9">&lt;/&gt;</text>
+  <text x="606" y="92" font-family="Consolas, monospace" font-size="28" font-weight="700" fill="#1a2b4a" opacity="0.55">{ }</text>
+  <circle cx="655" cy="180" r="5" fill="#3faf4e" opacity="0.7"/>
+  <circle cx="96" cy="200" r="4" fill="#1a2b4a" opacity="0.4"/>
+  <circle cx="640" cy="250" r="3.5" fill="#3faf4e" opacity="0.6"/>
+
+  <!-- shared monitor -->
+  <rect x="300" y="150" width="160" height="112" rx="12" fill="#1a2b4a"/>
+  <rect x="310" y="160" width="140" height="92" rx="6" fill="url(#screen)"/>
+  <rect x="372" y="262" width="16" height="24" fill="#24406b"/>
+  <ellipse cx="380" cy="290" rx="42" ry="8" fill="#1a2b4a"/>
+  <!-- code lines -->
+  <rect x="322" y="174" width="52" height="7" rx="3.5" fill="#3faf4e"/>
+  <rect x="382" y="174" width="30" height="7" rx="3.5" fill="#6fe08a" opacity="0.8"/>
+  <rect x="334" y="190" width="78" height="7" rx="3.5" fill="#ffffff" opacity="0.65"/>
+  <rect x="334" y="206" width="46" height="7" rx="3.5" fill="#6fe08a" opacity="0.85"/>
+  <rect x="388" y="206" width="30" height="7" rx="3.5" fill="#ffffff" opacity="0.4"/>
+  <rect x="322" y="222" width="60" height="7" rx="3.5" fill="#3faf4e"/>
+  <rect x="322" y="238" width="24" height="7" rx="3.5" fill="#6fe08a"/>
+  <rect x="352" y="238" width="9" height="9" rx="1.5" fill="#3faf4e"/>
+
+  <!-- ===== HUMAN (left) ===== -->
+  <!-- arm to keyboard -->
+  <path d="M246,222 Q292,250 330,286" fill="none" stroke="#2e8b3d" stroke-width="17" stroke-linecap="round"/>
+  <circle cx="333" cy="287" r="9" fill="#f0c19b"/>
+  <!-- torso -->
+  <rect x="190" y="196" width="70" height="118" rx="28" fill="#3faf4e"/>
+  <rect x="190" y="196" width="70" height="30" rx="15" fill="#46c25c"/>
+  <!-- neck -->
+  <rect x="212" y="172" width="26" height="18" rx="8" fill="#e7b389"/>
+  <!-- hair back -->
+  <circle cx="225" cy="146" r="33" fill="#2b2320"/>
+  <!-- head -->
+  <circle cx="225" cy="152" r="29" fill="#f0c19b"/>
+  <!-- fringe -->
+  <path d="M198,140 Q225,118 252,140 Q235,132 225,132 Q215,132 198,140 Z" fill="#2b2320"/>
+  <!-- face -->
+  <circle cx="215" cy="152" r="3" fill="#1a2b4a"/>
+  <circle cx="235" cy="152" r="3" fill="#1a2b4a"/>
+  <path d="M217,163 q8,7 16,0" fill="none" stroke="#b5765a" stroke-width="2.5" stroke-linecap="round"/>
+
+  <!-- ===== ROBOT (right) ===== -->
+  <!-- arm to keyboard -->
+  <path d="M512,214 Q474,250 432,286" fill="none" stroke="#aeb9c9" stroke-width="15" stroke-linecap="round"/>
+  <path d="M512,214 Q474,250 432,286" fill="none" stroke="#1a2b4a" stroke-width="15" stroke-linecap="round" stroke-opacity="0.12"/>
+  <circle cx="430" cy="287" r="10" fill="#cdd7e5" stroke="#1a2b4a" stroke-width="2"/>
+  <!-- body -->
+  <rect x="498" y="176" width="74" height="138" rx="20" fill="#cdd7e5" stroke="#1a2b4a" stroke-width="2.5"/>
+  <rect x="515" y="192" width="40" height="30" rx="7" fill="#1a2b4a"/>
+  <circle cx="525" cy="207" r="3.4" fill="#3faf4e"/>
+  <circle cx="535" cy="207" r="3.4" fill="#6fe08a"/>
+  <circle cx="545" cy="207" r="3.4" fill="#ffffff" opacity="0.8"/>
+  <!-- neck -->
+  <rect x="527" y="160" width="16" height="12" fill="#aeb9c9"/>
+  <!-- head -->
+  <rect x="503" y="104" width="64" height="56" rx="15" fill="#dbe3ee" stroke="#1a2b4a" stroke-width="2.5"/>
+  <rect x="512" y="114" width="46" height="34" rx="9" fill="url(#screen)"/>
+  <circle cx="524" cy="131" r="4.5" fill="#3faf4e"/>
+  <circle cx="546" cy="131" r="4.5" fill="#3faf4e"/>
+  <circle cx="525.5" cy="129.5" r="1.4" fill="#ffffff"/>
+  <circle cx="547.5" cy="129.5" r="1.4" fill="#ffffff"/>
+  <path d="M527,139 q8,5 16,0" fill="none" stroke="#3faf4e" stroke-width="2.2" stroke-linecap="round"/>
+  <!-- ears -->
+  <circle cx="501" cy="132" r="5.5" fill="#3faf4e"/>
+  <circle cx="569" cy="132" r="5.5" fill="#3faf4e"/>
+  <!-- antenna -->
+  <line x1="535" y1="104" x2="535" y2="90" stroke="#1a2b4a" stroke-width="3"/>
+  <circle cx="535" cy="86" r="6" fill="#3faf4e"/>
+
+  <!-- ===== DESK ===== -->
+  <ellipse cx="380" cy="360" rx="300" ry="20" fill="#1a2b4a" opacity="0.10"/>
+  <rect x="88" y="300" width="584" height="13" rx="5" fill="#2e4a78"/>
+  <rect x="88" y="313" width="584" height="42" rx="4" fill="url(#deskG)"/>
+  <!-- keyboard -->
+  <rect x="330" y="286" width="112" height="16" rx="4" fill="#e9edf3" stroke="#1a2b4a" stroke-width="1.5"/>
+  <g fill="#9fb0c6">
+    <rect x="336" y="290" width="8" height="4" rx="1"/><rect x="348" y="290" width="8" height="4" rx="1"/>
+    <rect x="360" y="290" width="8" height="4" rx="1"/><rect x="372" y="290" width="8" height="4" rx="1"/>
+    <rect x="384" y="290" width="8" height="4" rx="1"/><rect x="396" y="290" width="8" height="4" rx="1"/>
+    <rect x="408" y="290" width="8" height="4" rx="1"/><rect x="420" y="290" width="8" height="4" rx="1"/>
+    <rect x="348" y="296" width="72" height="4" rx="2"/>
+  </g>
+</svg>

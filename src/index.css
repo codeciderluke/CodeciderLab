@@ -925,6 +925,35 @@ h1, h2, h3, h4 {
   font-weight: 600;
 }
 
+.about-collab {
+  margin-top: 2.5rem;
+  text-align: center;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2rem 1.6rem 2.2rem;
+  box-shadow: var(--shadow);
+}
+
+.about-collab-img {
+  display: block;
+  width: 100%;
+  max-width: 620px;
+  height: auto;
+  margin: 0 auto 1.4rem;
+}
+
+.about-collab h2 {
+  font-size: 1.2rem;
+  margin-bottom: 0.6rem;
+}
+
+.about-collab p {
+  max-width: 560px;
+  margin: 0 auto;
+  color: var(--text-soft);
+}
+
 /* ─── Footer ─────────────────────────────── */
 .site-footer {
   background: var(--navy-deep);

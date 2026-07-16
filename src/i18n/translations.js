@@ -87,6 +87,9 @@ export const translations = {
     about_values_1: 'A platform that decides and grows together',
     about_values_2: 'Ideas into code, code into value',
     about_values_3: 'An open development ecosystem for everyone',
+    about_collab_title: 'Humans and AI, coding together',
+    about_collab_desc:
+      'Every Codecider project is built side by side — people and AI writing, reviewing, and deciding on the same code.',
 
     footer_rights: 'All rights reserved.',
     footer_slogan: 'A new paradigm of development — deciding together with AI and users.',
@@ -173,6 +176,9 @@ export const translations = {
     about_values_1: '함께 결정하고 함께 성장하는 플랫폼',
     about_values_2: '아이디어를 코드로, 코드를 가치로',
     about_values_3: '모두를 위한 개방형 개발 생태계',
+    about_collab_title: '사람과 AI가 함께 코딩합니다',
+    about_collab_desc:
+      'Codecider의 모든 프로젝트는 사람과 AI가 나란히 만들어 갑니다 — 같은 코드를 함께 작성하고, 검토하고, 결정합니다.',
 
     footer_rights: 'All rights reserved.',
     footer_slogan: 'AI와 사용자가 함께 결정하는 개발의 새로운 패러다임.',
