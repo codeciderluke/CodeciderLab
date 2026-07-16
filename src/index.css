@@ -971,18 +971,15 @@ h1, h2, h3, h4 {
   padding-bottom: 2rem;
 }
 
-.footer-brand {
-  display: flex;
-  gap: 0.8rem;
-  align-items: center;
+.footer-tagline {
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  color: #e6eef0;
 }
 
-.footer-brand strong {
-  color: #fff;
-}
-
-.footer-brand p {
-  font-size: 0.85rem;
+.footer-tagline .accent {
+  color: #4fce67;
 }
 
 .footer-copy {
