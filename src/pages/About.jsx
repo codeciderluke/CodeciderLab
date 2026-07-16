@@ -10,7 +10,6 @@ export default function About() {
         <div className="about-hero">
           <Logo size={64} />
           <h1 className="page-title">{t('about_title')}</h1>
-          <p className="section-subtitle">{t('tagline')}</p>
         </div>
 
         <div className="about-block">
