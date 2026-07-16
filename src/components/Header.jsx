@@ -9,7 +9,7 @@ export default function Header() {
     <header className="site-header">
       <div className="container header-inner">
         <Link to="/" className="brand">
-          <Logo size={58} />
+          <Logo size={68} />
         </Link>
 
         <nav className="main-nav">
