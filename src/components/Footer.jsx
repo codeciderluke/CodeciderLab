@@ -1,5 +1,5 @@
 import { useLang } from '../i18n/LanguageContext'
-import Logo from './Logo'
+import BottleLogo from './BottleLogo'
 
 export default function Footer() {
   const { t } = useLang()
@@ -9,7 +9,7 @@ export default function Footer() {
     <footer className="site-footer">
       <div className="container footer-inner">
         <div className="footer-brand">
-          <Logo size={28} />
+          <BottleLogo size={34} />
           <p>{t('footer_slogan')}</p>
         </div>
         <p className="footer-copy">
