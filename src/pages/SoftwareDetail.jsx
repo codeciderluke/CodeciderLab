@@ -81,8 +81,12 @@ export default function SoftwareDetail() {
               ))}
             </ul>
 
-            <h2>{t('benchmark')}</h2>
-            <p className="benchmark-note">{item.benchmark[lang]}</p>
+            {item.benchmark && (
+              <>
+                <h2>{t('benchmark')}</h2>
+                <p className="benchmark-note">{item.benchmark[lang]}</p>
+              </>
+            )}
 
             <h2>{t('tech_stack')}</h2>
             <div className="tech-tags">

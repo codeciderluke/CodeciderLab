@@ -39,6 +39,44 @@ export const software = [
       ko: '혼합 데이터셋(4,412개 파일 / 322MB) 기준 — 압축 2.0초 · 해제 0.8초 · 압축률 17.0%로 ZIP, tar.gz 대비 우수한 성능을 보입니다.',
     },
   },
+  {
+    id: 'human-photo-classifier',
+    name: 'Human Photo Classifier',
+    category: 'multimedia',
+    version: '1.0.0',
+    released: '2026-07-16',
+    license: 'MIT',
+    language: 'Python 3.11+',
+    github: 'https://github.com/codeciderluke/human-photo-classifier',
+    downloadUrl: 'https://github.com/codeciderluke/human-photo-classifier/releases',
+    summary: {
+      en: 'A desktop & CLI tool that automatically finds photos containing people in a source folder and copies them to a destination, powered by YOLOv11 person detection with optional InsightFace face and gender sorting.',
+      ko: 'YOLOv11 사람 감지를 기반으로 원본 폴더에서 사람이 담긴 사진을 자동으로 찾아 대상 폴더로 복사하는 데스크톱/CLI 도구. InsightFace 기반 얼굴·성별 분류를 선택적으로 지원합니다.',
+    },
+    overview: {
+      en: 'Human Photo Classifier scans a source folder, detects images containing people with YOLOv11, and copies the matches into a destination folder while preserving structure. The detection engine is architecturally separated from the GUI behind an abstract ImagePersonFilter interface, so it can be reused or swapped. Models are loaded once and reused across every image, and detection runs on a background thread to keep the UI responsive; jobs can be cancelled safely at any time. Corrupt files are excluded, while partially damaged person photos are routed to others/damaged. Optional InsightFace analysis adds face detection and gender classification, automatically organizing results into with_face/no_face and male/female subfolders. Ships as a dark-themed PyQt5 desktop app tuned for Full HD, with a full CLI and pre-built Windows executables that require no Python install.',
+      ko: 'Human Photo Classifier는 원본 폴더를 스캔해 YOLOv11로 사람이 포함된 이미지를 감지하고, 구조를 유지한 채 대상 폴더로 복사합니다. 감지 엔진은 추상 ImagePersonFilter 인터페이스 뒤에서 GUI와 분리되어 있어 재사용하거나 교체할 수 있습니다. 모델은 한 번만 로드해 모든 이미지에 재사용하며, 감지는 백그라운드 스레드에서 실행되어 UI가 멈추지 않고 작업을 언제든 안전하게 취소할 수 있습니다. 손상된 파일은 제외하고, 일부만 손상된 사람 사진은 others/damaged 폴더로 분류합니다. 선택적 InsightFace 분석을 통해 얼굴 감지와 성별 분류를 추가할 수 있으며, 결과를 with_face/no_face 및 male/female 하위 폴더로 자동 정리합니다. Full HD에 맞춘 다크 테마 PyQt5 데스크톱 앱과 전체 CLI, 그리고 Python 설치가 필요 없는 사전 빌드 Windows 실행 파일을 함께 제공합니다.',
+    },
+    features: {
+      en: [
+        'Automatic person detection with YOLOv11 — copies matching photos to a destination folder',
+        'Optional InsightFace face detection and gender classification with auto-organized subfolders',
+        'Layered architecture — GUI, detection filters, and file services are fully decoupled',
+        'Background-threaded, cancellable jobs with single model load reused across images',
+        'Corrupt-image handling — damaged person photos routed to others/damaged',
+        'Dark-themed PyQt5 GUI plus a full CLI; GPU acceleration via CPU/CUDA selection',
+      ],
+      ko: [
+        'YOLOv11 기반 자동 사람 감지 — 일치하는 사진을 대상 폴더로 복사',
+        '선택적 InsightFace 얼굴 감지 및 성별 분류, 하위 폴더 자동 정리',
+        '계층형 아키텍처 — GUI, 감지 필터, 파일 서비스 완전 분리',
+        '백그라운드 스레드 처리 및 취소 가능한 작업, 모델 단일 로드 후 재사용',
+        '손상 이미지 처리 — 손상된 사람 사진은 others/damaged로 분류',
+        '다크 테마 PyQt5 GUI + 전체 CLI; CPU/CUDA 선택으로 GPU 가속 지원',
+      ],
+    },
+    techStack: ['Python', 'PyQt5', 'YOLOv11', 'InsightFace', 'PyTorch'],
+  },
 ]
 
 export function getSoftware(id) {
