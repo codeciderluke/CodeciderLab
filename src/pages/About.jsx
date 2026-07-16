@@ -1,5 +1,4 @@
 import { useLang } from '../i18n/LanguageContext'
-import Logo from '../components/Logo'
 
 export default function About() {
   const { t } = useLang()
@@ -8,7 +7,6 @@ export default function About() {
     <section className="section page-top">
       <div className="container about">
         <div className="about-hero">
-          <Logo size={64} />
           <h1 className="page-title">{t('about_title')}</h1>
         </div>
 
