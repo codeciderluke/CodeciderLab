@@ -77,6 +77,46 @@ export const software = [
     },
     techStack: ['Python', 'PyQt5', 'Ultralytics YOLO', 'InsightFace', 'ONNX Runtime', 'PyTorch'],
   },
+  {
+    id: 'photo-time-classifier',
+    name: 'Photo Time Classifier',
+    category: 'multimedia',
+    version: '1.0.0',
+    released: '2026-07-17',
+    license: 'AGPL-3.0',
+    language: 'Python',
+    github: 'https://github.com/codeciderluke/photo-time-classifier',
+    downloadUrl: 'https://github.com/codeciderluke/photo-time-classifier/releases',
+    summary: {
+      en: 'A desktop & CLI tool that automatically organizes photos into folders by their EXIF shot time — the moment the shutter actually fired, not the file timestamp — with year, month, or day granularity.',
+      ko: '파일 타임스탬프가 아닌 EXIF 촬영 시각을 기준으로 사진을 연·월·일 단위 폴더로 자동 정리하는 데스크톱/CLI 도구입니다.',
+    },
+    overview: {
+      en: 'Photo Time Classifier reads each photo\'s EXIF shot time and sorts it into folders by year, month, or day — one granularity per run. Because it uses the actual shutter time rather than filesystem timestamps, ordering survives copying, syncing, and re-downloading. Photos with no EXIF shot time are routed to an others folder, and corrupt or partially damaged files are segregated into Damaged rather than silently dropped. Duplicate filenames are resolved with collision-safe naming (name_1.jpg, name_2.jpg). HEIC/HEIF is supported via pi-heif, so iPhone libraries work alongside JPEG, PNG, BMP, WebP, and TIFF. The classification logic is decoupled from the GUI behind a layered architecture, so it can be reused from the CLI, batch jobs, server APIs, and tests. Processing is asynchronous to keep the UI responsive, and jobs can be cancelled safely at any point. Ships as a dark-themed PyQt5 desktop app tuned for Full HD, with a full CLI and pre-built Windows executables that require no Python install. Released under AGPL-3.0 for compatibility with its PyQt5 (GPL-3.0) dependency.',
+      ko: 'Photo Time Classifier는 각 사진의 EXIF 촬영 시각을 읽어 연·월·일 단위 폴더로 분류합니다(실행당 하나의 기준). 파일시스템 타임스탬프가 아닌 실제 셔터 작동 시각을 사용하므로 복사·동기화·재다운로드 후에도 정렬 순서가 유지됩니다. EXIF 촬영 시각이 없는 사진은 others 폴더로 보내고, 손상되었거나 일부만 손상된 파일은 조용히 누락시키지 않고 Damaged 폴더로 분리합니다. 파일명이 겹칠 경우 name_1.jpg, name_2.jpg 형태로 안전하게 이름을 부여합니다. pi-heif를 통해 HEIC/HEIF를 지원하여 iPhone 사진 라이브러리도 JPEG, PNG, BMP, WebP, TIFF와 함께 처리할 수 있습니다. 분류 로직은 계층형 아키텍처로 GUI와 분리되어 있어 CLI, 배치 작업, 서버 API, 테스트에서 재사용할 수 있습니다. 비동기 처리로 UI가 멈추지 않으며 작업은 언제든 안전하게 취소할 수 있습니다. Full HD에 맞춘 다크 테마 PyQt5 데스크톱 앱과 전체 CLI, Python 설치가 필요 없는 사전 빌드 Windows 실행 파일을 제공합니다. PyQt5(GPL-3.0) 의존성과의 호환을 위해 AGPL-3.0 라이선스로 배포됩니다.',
+    },
+    features: {
+      en: [
+        'Sorts by EXIF shot time — the actual shutter moment, not file timestamps',
+        'Year, month, or day granularity, one per run; photos without EXIF go to others',
+        'HEIC/HEIF support via pi-heif, plus JPEG, PNG, BMP, WebP, and TIFF',
+        'Damage detection — corrupt or partially damaged files segregated to Damaged',
+        'Collision-safe naming for duplicate filenames (name_1.jpg, name_2.jpg)',
+        'Layered architecture — GUI, filters, and services stay independent',
+        'Asynchronous, cancellable jobs; dark-themed PyQt5 GUI plus a full CLI',
+      ],
+      ko: [
+        '파일 타임스탬프가 아닌 실제 EXIF 촬영 시각 기준 정렬',
+        '실행당 연·월·일 중 하나의 기준 선택; EXIF가 없는 사진은 others 폴더로 분류',
+        'pi-heif 기반 HEIC/HEIF 지원 및 JPEG, PNG, BMP, WebP, TIFF 처리',
+        '손상 감지 — 손상되었거나 일부 손상된 파일은 Damaged 폴더로 분리',
+        '파일명 충돌 시 안전한 이름 부여(name_1.jpg, name_2.jpg)',
+        '계층형 아키텍처 — GUI, 필터, 서비스 완전 분리',
+        '비동기 처리 및 취소 가능한 작업; 다크 테마 PyQt5 GUI + 전체 CLI',
+      ],
+    },
+    techStack: ['Python', 'PyQt5', 'Pillow', 'pi-heif', 'pytest', 'PyInstaller'],
+  },
 ]
 
 export function getSoftware(id) {
