@@ -117,6 +117,44 @@ export const software = [
     },
     techStack: ['Python', 'PyQt5', 'Pillow', 'pi-heif', 'pytest', 'PyInstaller'],
   },
+  {
+    id: 'mycom-information',
+    name: 'Mycom Information',
+    category: 'education',
+    version: '1.0.0',
+    released: '2026-07-17',
+    license: 'GPL-3.0-or-later',
+    language: 'Python 3.10+',
+    github: 'https://github.com/codeciderluke/Mycom-Information',
+    downloadUrl: 'https://github.com/codeciderluke/Mycom-Information/releases',
+    summary: {
+      en: 'A desktop dashboard that collects the hardware and software specifications of the machine it runs on, and exports them as JSON, plain text, or a printable A4 PDF report.',
+      ko: '실행 중인 PC의 하드웨어·소프트웨어 사양을 수집해 대시보드로 보여주고, JSON·일반 텍스트·인쇄용 A4 PDF 보고서로 내보내는 데스크톱 도구입니다.',
+    },
+    overview: {
+      en: 'Mycom Information probes the machine it runs on and presents the results across two tabs — Hardware and Software — as summary cards. Hardware coverage includes CPU specs, motherboard details, GPU info, display EDID data, memory, storage usage, and BIOS/firmware. Software coverage includes the OS version, Python and PyQt versions, Git, Node.js/npm, developer tooling (Docker, Java, .NET, CMake, PowerShell), and network interfaces. The interface follows a summary-first, detail-on-demand approach: cards expand for full detail and can be focused individually, with dark and light themes available. Collection runs on a non-blocking background thread so the UI never freezes, and probes degrade gracefully — anything that fails is reported as "Unavailable" instead of crashing the app. Results export to JSON, plain text, or a printable A4 PDF, with direct printing and print preview supported. Prebuilt Windows executables are available, or it can run from source via run.bat or a manual venv. Released under GPL-3.0-or-later, as linking against PyQt5 (GPL v3) requires GPL-compatible terms.',
+      ko: 'Mycom Information은 실행 중인 컴퓨터를 조사해 결과를 하드웨어·소프트웨어 두 개의 탭에 요약 카드 형태로 보여줍니다. 하드웨어는 CPU 사양, 메인보드 정보, GPU, 디스플레이 EDID 데이터, 메모리, 저장장치 사용량, BIOS/펌웨어를 다루고, 소프트웨어는 OS 버전, Python·PyQt 버전, Git, Node.js/npm, 개발 도구(Docker, Java, .NET, CMake, PowerShell), 네트워크 인터페이스를 다룹니다. 인터페이스는 요약을 먼저 보여주고 필요할 때 상세를 펼치는 방식으로, 카드를 확장하거나 개별 카드에 집중해서 볼 수 있으며 다크·라이트 테마를 지원합니다. 정보 수집은 논블로킹 백그라운드 스레드에서 실행되어 UI가 멈추지 않으며, 조사에 실패한 항목은 앱을 중단시키지 않고 "Unavailable"로 표시됩니다. 결과는 JSON, 일반 텍스트, 인쇄용 A4 PDF로 내보낼 수 있고 미리보기와 직접 인쇄도 지원합니다. 사전 빌드된 Windows 실행 파일을 제공하며, run.bat 또는 수동 venv 설정으로 소스에서 실행할 수도 있습니다. PyQt5(GPL v3) 링크에 GPL 호환 조건이 필요하므로 GPL-3.0-or-later 라이선스로 배포됩니다.',
+    },
+    features: {
+      en: [
+        'Hardware tab — CPU, motherboard, GPU, display EDID, memory, storage, BIOS/firmware',
+        'Software tab — OS, Python/PyQt, Git, Node.js/npm, Docker, Java, .NET, CMake, PowerShell, network interfaces',
+        'Summary-first cards that expand on demand, with dark and light themes',
+        'Export to JSON, plain text, or a printable A4 PDF; direct printing with preview',
+        'Non-blocking background collection thread keeps the UI responsive',
+        'Graceful degradation — failed probes report as "Unavailable" rather than crashing',
+      ],
+      ko: [
+        '하드웨어 탭 — CPU, 메인보드, GPU, 디스플레이 EDID, 메모리, 저장장치, BIOS/펌웨어',
+        '소프트웨어 탭 — OS, Python/PyQt, Git, Node.js/npm, Docker, Java, .NET, CMake, PowerShell, 네트워크 인터페이스',
+        '요약 우선 카드 구성, 필요 시 상세 확장; 다크·라이트 테마 지원',
+        'JSON·일반 텍스트·인쇄용 A4 PDF 내보내기 및 미리보기 기반 직접 인쇄',
+        '논블로킹 백그라운드 수집 스레드로 UI 응답성 유지',
+        '안전한 실패 처리 — 조사 실패 항목은 앱 중단 없이 "Unavailable"로 표시',
+      ],
+    },
+    techStack: ['Python', 'PyQt5', 'psutil', 'PyInstaller'],
+  },
 ]
 
 export function getSoftware(id) {
