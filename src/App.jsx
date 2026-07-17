@@ -1,6 +1,7 @@
-import { Routes, Route, useLocation } from 'react-router-dom'
+import { Routes, Route, Navigate, useLocation, useParams } from 'react-router-dom'
 import { useEffect } from 'react'
 import { trackPageView } from './analytics'
+import { legacyCategoryRedirects } from './data/categories'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import Home from './pages/Home'
@@ -18,6 +19,11 @@ function ScrollToTop() {
     window.scrollTo(0, 0)
   }, [pathname])
   return null
+}
+
+function LegacySoftwareRedirect({ categoryId }) {
+  const { softwareId } = useParams()
+  return <Navigate to={`/software/${categoryId}/${softwareId}`} replace />
 }
 
 function AnalyticsTracker() {
@@ -38,6 +44,18 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/software" element={<SoftwareIndex />} />
+          {Object.entries(legacyCategoryRedirects).flatMap(([from, to]) => [
+            <Route
+              key={from}
+              path={`/software/${from}`}
+              element={<Navigate to={`/software/${to}`} replace />}
+            />,
+            <Route
+              key={`${from}/:softwareId`}
+              path={`/software/${from}/:softwareId`}
+              element={<LegacySoftwareRedirect categoryId={to} />}
+            />,
+          ])}
           <Route path="/software/:categoryId" element={<CategoryPage />} />
           <Route path="/software/:categoryId/:softwareId" element={<SoftwareDetail />} />
           <Route path="/boards" element={<BoardsIndex />} />

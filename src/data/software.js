@@ -120,7 +120,7 @@ export const software = [
   {
     id: 'mycom-information',
     name: 'Mycom Information',
-    category: 'education',
+    category: 'information',
     version: '1.0.0',
     released: '2026-07-17',
     license: 'GPL-3.0-or-later',

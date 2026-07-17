@@ -37,9 +37,9 @@ export const categories = [
     ),
   },
   {
-    id: 'education',
-    nameKey: 'cat_education',
-    descKey: 'cat_education_desc',
+    id: 'information',
+    nameKey: 'cat_information',
+    descKey: 'cat_information_desc',
     color: '#e8913a',
     icon: (
       <svg {...iconProps}>
@@ -61,6 +61,11 @@ export const categories = [
     ),
   },
 ]
+
+// Category ids that shipped under an earlier name. Kept so existing links stay valid.
+export const legacyCategoryRedirects = {
+  education: 'information',
+}
 
 export function getCategory(id) {
   return categories.find((c) => c.id === id)

@@ -75,7 +75,7 @@ codeciderweb/
 | ID | 이름 | 컬러 |
 |---|---|---|
 | `multimedia` | Multimedia / 멀티미디어 | `#7c5cd6` |
-| `education` | Education / 교육 | `#e8913a` |
+| `information` | Information / 정보 | `#e8913a` |
 | `automation` | Office Automation / 업무 자동화 | `#3a7bd5` |
 | `data` | Data Processing / 데이터 처리 | `#14a08c` |
 | `utilities` | Utilities / 유틸리티 | `#46a758` |
