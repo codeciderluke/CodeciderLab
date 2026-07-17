@@ -39,7 +39,7 @@ codeciderweb/
 │   │   ├── LanguageContext.jsx    # lang 상태, toggleLang, t() 훅
 │   │   └── translations.js        # EN/KO 문자열 사전
 │   ├── data/
-│   │   ├── categories.jsx         # 카테고리 6종 (아이콘 SVG + 컬러)
+│   │   ├── categories.jsx         # 카테고리 4종 (아이콘 SVG + 컬러), 레거시 id 리다이렉트 맵
 │   │   └── software.js            # 소프트웨어 레지스트리 (이중 언어)
 │   ├── components/
 │   │   ├── Logo.jsx               # 병 로고 (animated 옵션)
@@ -65,21 +65,27 @@ codeciderweb/
 | `/software` | 카테고리 목록 |
 | `/software/:categoryId` | 카테고리별 소프트웨어 |
 | `/software/:categoryId/:softwareId` | 상세 (개요 / 토론 탭) |
+| `/software/<옛 카테고리 id>[/:softwareId]` | 현재 id로 리다이렉트 (4.1 참고) |
 | `/boards`, `/boards/:softwareId` | 게시판 목록 / 개별 게시판 |
 | `/about` | 조직 소개 |
 
 ## 4. 주요 기능
 
-### 4.1 소프트웨어 카테고리 (6종, 전용 아이콘 + 컬러)
+### 4.1 소프트웨어 카테고리 (4종, 전용 아이콘 + 컬러)
+
+`src/data/categories.jsx`의 정의 순서 기준.
 
 | ID | 이름 | 컬러 |
 |---|---|---|
+| `automation` | Work Automation / 업무자동화 | `#3a7bd5` |
 | `multimedia` | Multimedia / 멀티미디어 | `#7c5cd6` |
 | `information` | Information / 정보 | `#e8913a` |
-| `automation` | Office Automation / 업무 자동화 | `#3a7bd5` |
-| `data` | Data Processing / 데이터 처리 | `#14a08c` |
 | `utilities` | Utilities / 유틸리티 | `#46a758` |
-| `emerging` | Emerging Tech / 신기술 연구 | `#5a67d8` |
+
+`information`은 초기에 `education`(교육)이라는 id로 배포됐다. id를 바꾼 뒤에도 기존
+링크가 살아 있도록 `categories.jsx`의 `legacyCategoryRedirects` 맵에 옛 id를 남겨두고,
+`App.jsx`가 이 맵에서 리다이렉트 라우트를 생성한다. 앞으로 카테고리 id를 바꿀 때도
+같은 방식으로 맵에 한 줄을 추가한다.
 
 ### 4.2 다국어 (EN 기본 / KO 전환)
 
@@ -93,8 +99,14 @@ codeciderweb/
 버전·출시일·라이선스·개발 언어 메타, 개요, 주요 기능, 벤치마크, 기술 스택,
 Download / GitHub 버튼. 탭으로 토론 게시판 전환.
 
-**등록된 소프트웨어**: [ultra-fast-zip](https://github.com/codeciderluke/ultra-fast-zip)
-(Utilities, v1.0.0, MIT, Python 3.11+ — .ufz 포맷 블록 기반 Zstandard 압축 도구)
+**등록된 소프트웨어** (`src/data/software.js` 기준)
+
+| 소프트웨어 | 카테고리 | 라이선스 | 요약 |
+|---|---|---|---|
+| [ultra-fast-zip](https://github.com/codeciderluke/ultra-fast-zip) | Utilities | MIT | .ufz 포맷 블록 기반 Zstandard 압축 도구 |
+| [human-photo-classifier](https://github.com/codeciderluke/human-photo-classifier) | Multimedia | AGPL-3.0 | YOLOv11 사람 감지로 사진 분류 |
+| [photo-time-classifier](https://github.com/codeciderluke/photo-time-classifier) | Multimedia | AGPL-3.0 | EXIF 촬영 시각 기준 사진 정리 |
+| [Mycom-Information](https://github.com/codeciderluke/Mycom-Information) | Information | GPL-3.0-or-later | PC 하드웨어·소프트웨어 사양 대시보드 |
 
 ### 4.4 게시판
 
@@ -132,9 +144,13 @@ Download / GitHub 버튼. 탭으로 토론 게시판 전환.
   github: '...', downloadUrl: '...',
   summary: { en, ko }, overview: { en, ko },
   features: { en: [...], ko: [...] },
-  techStack: [...], benchmark: { en, ko },
+  techStack: [...],
+  benchmark: { en, ko },     // 선택 — 없으면 상세 페이지에서 섹션 자체가 빠짐
 }
 ```
+
+`category`는 반드시 `categories.jsx`에 있는 현재 id여야 한다. `SoftwareDetail`이
+URL의 `categoryId`와 `item.category`가 일치하는지 검사하므로, 옛 id를 넣으면 404가 된다.
 
 ## 7. 개발 이력 요약
 
