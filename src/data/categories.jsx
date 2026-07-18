@@ -60,12 +60,70 @@ export const categories = [
       </svg>
     ),
   },
+  {
+    id: 'life-automation',
+    nameKey: 'cat_life_automation',
+    descKey: 'cat_life_automation_desc',
+    color: '#14a89a',
+    icon: (
+      <svg {...iconProps}>
+        <path d="M3.8 11.2 12 4l8.2 7.2" />
+        <path d="M6 10v9.2h12V10" />
+        <path d="M10 19.2v-4.4h4v4.4" />
+        <circle cx="12" cy="9.6" r="0.9" fill="currentColor" stroke="none" />
+      </svg>
+    ),
+  },
+  {
+    id: 'ai-agent',
+    nameKey: 'cat_ai_agent',
+    descKey: 'cat_ai_agent_desc',
+    color: '#5b6ef5',
+    icon: (
+      <svg {...iconProps}>
+        <rect x="4.5" y="7.8" width="15" height="11" rx="3" />
+        <path d="M12 4v3.6" />
+        <circle cx="12" cy="3.4" r="1" />
+        <circle cx="9.2" cy="12.8" r="1.1" fill="currentColor" stroke="none" />
+        <circle cx="14.8" cy="12.8" r="1.1" fill="currentColor" stroke="none" />
+        <path d="M9.6 16h4.8" />
+        <path d="M4.5 12H2.8M19.5 12h1.7" />
+      </svg>
+    ),
+  },
+  {
+    id: 'play-toy',
+    nameKey: 'cat_play_toy',
+    descKey: 'cat_play_toy_desc',
+    color: '#e0559a',
+    icon: (
+      <svg {...iconProps}>
+        <rect x="4" y="4" width="16" height="16" rx="3.5" />
+        <circle cx="9" cy="9" r="1.15" fill="currentColor" stroke="none" />
+        <circle cx="15" cy="9" r="1.15" fill="currentColor" stroke="none" />
+        <circle cx="12" cy="12" r="1.15" fill="currentColor" stroke="none" />
+        <circle cx="9" cy="15" r="1.15" fill="currentColor" stroke="none" />
+        <circle cx="15" cy="15" r="1.15" fill="currentColor" stroke="none" />
+      </svg>
+    ),
+  },
+  {
+    id: 'education',
+    nameKey: 'cat_education',
+    descKey: 'cat_education_desc',
+    color: '#d1495b',
+    icon: (
+      <svg {...iconProps}>
+        <path d="M12 4 2.5 8.5 12 13l9.5-4.5z" />
+        <path d="M6.5 10.8v3.9c0 1.4 2.5 2.5 5.5 2.5s5.5-1.1 5.5-2.5v-3.9" />
+        <path d="M21.5 8.5v4" />
+      </svg>
+    ),
+  },
 ]
 
 // Category ids that shipped under an earlier name. Kept so existing links stay valid.
-export const legacyCategoryRedirects = {
-  education: 'information',
-}
+export const legacyCategoryRedirects = {}
 
 export function getCategory(id) {
   return categories.find((c) => c.id === id)
