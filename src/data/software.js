@@ -155,6 +155,50 @@ export const software = [
     },
     techStack: ['Python', 'PyQt5', 'psutil', 'PyInstaller'],
   },
+  {
+    id: 'ultra-fast-copy',
+    name: 'Ultra Fast Copy',
+    category: 'utilities',
+    version: '0.1.0',
+    released: '2026-07-18',
+    license: 'MIT',
+    language: 'Python 3.12+',
+    github: 'https://github.com/codeciderluke/ultra-fast-copy',
+    downloadUrl: 'https://github.com/codeciderluke/ultra-fast-copy/releases',
+    summary: {
+      en: 'A high-performance file copy/move tool for Windows with a CLI and PySide6 GUI on one shared engine — built for the cases where Explorer bogs down, with verification, retry, and resume.',
+      ko: 'Windows용 고성능 파일 복사/이동 도구. 하나의 공용 엔진 위에 CLI와 PySide6 GUI를 함께 제공하며, 탐색기가 버거워하는 상황을 위해 검증·재시도·이어하기를 갖췄습니다.',
+    },
+    overview: {
+      en: 'Ultra Fast Copy is built for the transfers where Windows Explorer bogs down — hundreds of thousands of files, network drives, and interrupted jobs. Rather than just copying in parallel, it adapts to file size, storage device (HDD/SSD/network), and network conditions, automatically choosing the worker count. Moves are handled safely: a same-volume move is a rename, while a cross-volume move is copy → verify → delete, keeping the original if verification fails. Interrupted jobs resume from a SQLite checkpoint so already-finished files are never copied twice, and each file can be verified by size, mtime+size, xxHash, or SHA-256. Conflicts are governed by policy (skip, overwrite, overwrite-if-newer, overwrite-if-different, rename, or ask), and partial files are written to a .fasttransfer.partial name and atomically renamed only after verification. It is thoroughly Windows-aware — long paths, UNC, reserved device names, and Unicode — with per-file failure isolation so one bad file never stops the job. Ships as a dark-themed dual-pane PySide6 desktop app with drag-and-drop and Explorer right-click integration, plus a full CLI with JSON output for automation. Released under the MIT license.',
+      ko: 'Ultra Fast Copy는 Windows 탐색기가 버거워하는 전송 — 수십만 개의 파일, 네트워크 드라이브, 중단된 작업 — 을 위해 만들어졌습니다. 단순 병렬 복사가 아니라 파일 크기, 저장장치 종류(HDD/SSD/네트워크), 네트워크 상태에 맞춰 워커 수를 자동으로 결정합니다. 이동은 안전하게 처리되어, 같은 볼륨 내 이동은 이름 변경으로, 볼륨 간 이동은 복사 → 검증 → 삭제 순으로 진행하며 검증에 실패하면 원본을 그대로 보존합니다. 중단된 작업은 SQLite 체크포인트에서 이어서 진행되어 이미 완료된 파일을 다시 복사하지 않으며, 파일별로 크기·mtime+크기·xxHash·SHA-256 검증을 선택할 수 있습니다. 충돌은 정책(건너뛰기, 덮어쓰기, 최신일 때 덮어쓰기, 다를 때 덮어쓰기, 이름 변경, 확인)으로 제어하고, 미완성 파일은 .fasttransfer.partial 이름으로 기록한 뒤 검증에 성공해야 최종 이름으로 원자적으로 변경됩니다. 긴 경로(\\?\\), UNC, 예약된 장치 이름, 유니코드 등 Windows 특성을 충실히 다루며, 파일별 실패 격리로 하나의 파일 오류가 전체 작업을 멈추지 않습니다. 드래그 앤 드롭과 탐색기 우클릭 통합을 지원하는 다크 테마 듀얼 페인 PySide6 데스크톱 앱과, 자동화를 위한 JSON 출력을 갖춘 전체 CLI를 함께 제공합니다. MIT 라이선스로 배포됩니다.',
+    },
+    features: {
+      en: [
+        'Environment-aware parallelism — worker count auto-tuned by device type and average file size',
+        'Safe move — same-volume rename; cross-volume copy → verify → delete, original kept on failure',
+        'Resume from a SQLite checkpoint — finished files are never re-copied after a hard stop',
+        'Per-file verification: none / size / mtime+size / xxHash / SHA-256',
+        'Conflict policies, partial-file isolation, and pause / resume / cancel on every job',
+        'Windows-aware (long paths, UNC, Unicode) with per-file failure isolation',
+        'Dual-pane PySide6 GUI with drag-and-drop and Explorer right-click integration, plus a full CLI',
+      ],
+      ko: [
+        '환경 인식 병렬 처리 — 저장장치 종류와 평균 파일 크기에 따라 워커 수 자동 조정',
+        '안전한 이동 — 같은 볼륨은 이름 변경, 볼륨 간은 복사 → 검증 → 삭제, 실패 시 원본 보존',
+        'SQLite 체크포인트 이어하기 — 강제 종료 후에도 완료된 파일은 다시 복사하지 않음',
+        '파일별 검증: none / size / mtime+size / xxHash / SHA-256',
+        '충돌 정책, 미완성 파일 격리, 모든 작업의 일시정지 / 이어하기 / 취소 지원',
+        'Windows 특성 대응(긴 경로, UNC, 유니코드) 및 파일별 실패 격리',
+        '드래그 앤 드롭과 탐색기 우클릭 통합을 갖춘 듀얼 페인 PySide6 GUI + 전체 CLI',
+      ],
+    },
+    techStack: ['Python', 'PySide6', 'xxHash', 'SQLite'],
+    benchmark: {
+      en: '20,000 files / 637 MB on one NVMe volume (warm cache) — 8.2s at 2,445 files/s, about 3.7× faster than Windows Explorer (30.0s) while adding verification, resume, and retry that Explorer lacks entirely.',
+      ko: '단일 NVMe 볼륨(웜 캐시) 기준 20,000개 파일 / 637MB — 8.2초, 초당 2,445개 처리로 Windows 탐색기(30.0초) 대비 약 3.7배 빠르며, 탐색기에는 없는 검증·이어하기·재시도까지 제공합니다.',
+    },
+  },
 ]
 
 export function getSoftware(id) {
