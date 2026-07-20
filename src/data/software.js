@@ -199,6 +199,46 @@ export const software = [
       ko: '단일 NVMe 볼륨(웜 캐시) 기준 20,000개 파일 / 637MB — 8.2초, 초당 2,445개 처리로 Windows 탐색기(30.0초) 대비 약 3.7배 빠르며, 탐색기에는 없는 검증·이어하기·재시도까지 제공합니다.',
     },
   },
+  {
+    id: 'my-network-monitor',
+    name: 'My Network Monitor',
+    category: 'file-system',
+    version: '0.1.0',
+    released: '2026-07-18',
+    license: 'MIT',
+    language: 'Python 3.12+',
+    github: 'https://github.com/codeciderluke/My-Network-Monitor',
+    downloadUrl: 'https://github.com/codeciderluke/My-Network-Monitor/releases',
+    summary: {
+      en: 'A real-time network traffic monitor for Windows that captures, parses, and aggregates L3/L4 metadata (TCP, UDP, DNS, ICMP, ARP) through a polished dark-theme PySide6 GUI.',
+      ko: 'Windows용 실시간 네트워크 트래픽 모니터. L3/L4 메타데이터(TCP·UDP·DNS·ICMP·ARP)를 캡처·분석·집계하여 다크 테마 PySide6 GUI로 보여줍니다.',
+    },
+    overview: {
+      en: 'My Network Monitor captures live traffic on any wired or wireless interface using Scapy and Npcap, then parses and aggregates L3/L4 metadata for TCP, UDP, DNS, ICMP, IPv4/IPv6, and ARP. It detects inbound/outbound direction, breaks traffic down per protocol, and shows real-time download/upload speed on a rolling 60-second chart alongside a filterable packet log backed by a 10,000-row ring buffer. Traffic is attributed per process (top processes and destinations), persisted to SQLite, and exportable to CSV or JSON Lines. A non-blocking threaded pipeline fully decouples packet capture from the GUI — capture, parsing, and aggregation run on separate threads while the UI refreshes in batches via a QTimer, so heavy traffic never freezes the interface. A --demo mode previews the UI with synthetic traffic, requiring neither Npcap nor administrator rights. It captures metadata only: it does not decrypt HTTPS content or block packets. Released under the MIT license.',
+      ko: 'My Network Monitor는 Scapy와 Npcap을 사용해 유선·무선 인터페이스의 트래픽을 실시간으로 캡처한 뒤, TCP·UDP·DNS·ICMP·IPv4/IPv6·ARP의 L3/L4 메타데이터를 파싱·집계합니다. 인바운드/아웃바운드 방향을 감지하고 프로토콜별로 트래픽을 분석하며, 롤링 60초 차트로 실시간 다운로드/업로드 속도를 보여주는 동시에 10,000행 링 버퍼 기반의 필터링 가능한 패킷 로그를 제공합니다. 트래픽은 프로세스 단위로 귀속되고(상위 프로세스·목적지), SQLite에 저장되며 CSV 또는 JSON Lines로 내보낼 수 있습니다. 논블로킹 스레드 파이프라인이 패킷 캡처와 GUI를 완전히 분리해 — 캡처·파싱·집계가 별도 스레드에서 돌고 UI는 QTimer로 배치 갱신되어 — 트래픽이 많아도 화면이 멈추지 않습니다. --demo 모드는 합성 트래픽으로 UI를 미리 볼 수 있어 Npcap이나 관리자 권한이 필요 없습니다. 메타데이터만 캡처하며 HTTPS 내용을 복호화하거나 패킷을 차단하지 않습니다. MIT 라이선스로 배포됩니다.',
+    },
+    features: {
+      en: [
+        'Live capture on any wired/wireless interface (Scapy + Npcap)',
+        'Inbound/outbound direction detection and per-protocol analysis (TCP, UDP, DNS, ICMP, ARP)',
+        'Real-time download/upload speed on a rolling 60-second chart',
+        'Filterable packet log — QTableView backed by a 10,000-row ring buffer',
+        'Per-process attribution: top processes and destinations',
+        'SQLite persistence with CSV / JSON Lines export',
+        'Non-blocking threaded pipeline plus a --demo mode (no Npcap/admin needed)',
+      ],
+      ko: [
+        '유선·무선 인터페이스 실시간 캡처 (Scapy + Npcap)',
+        '인바운드/아웃바운드 방향 감지 및 프로토콜별 분석 (TCP·UDP·DNS·ICMP·ARP)',
+        '롤링 60초 차트로 실시간 다운로드/업로드 속도 표시',
+        '필터링 가능한 패킷 로그 — 10,000행 링 버퍼 기반 QTableView',
+        '프로세스 단위 귀속: 상위 프로세스·목적지',
+        'SQLite 저장 및 CSV / JSON Lines 내보내기',
+        '논블로킹 스레드 파이프라인 + --demo 모드(Npcap·관리자 권한 불필요)',
+      ],
+    },
+    techStack: ['Python', 'PySide6', 'Scapy', 'SQLite'],
+  },
 ]
 
 export function getSoftware(id) {
