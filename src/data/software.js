@@ -2,7 +2,7 @@ export const software = [
   {
     id: 'ultra-fast-zip',
     name: 'Ultra Fast Zip',
-    category: 'utilities',
+    category: 'file-system',
     version: '1.0.0',
     released: '2026-07-14',
     license: 'MIT',
@@ -42,7 +42,7 @@ export const software = [
   {
     id: 'human-photo-classifier',
     name: 'Human Photo Classifier',
-    category: 'multimedia',
+    category: 'media',
     version: '1.0.0',
     released: '2026-07-16',
     license: 'AGPL-3.0',
@@ -80,7 +80,7 @@ export const software = [
   {
     id: 'photo-time-classifier',
     name: 'Photo Time Classifier',
-    category: 'multimedia',
+    category: 'media',
     version: '1.0.0',
     released: '2026-07-17',
     license: 'AGPL-3.0',
@@ -120,7 +120,7 @@ export const software = [
   {
     id: 'mycom-information',
     name: 'Mycom Information',
-    category: 'information',
+    category: 'file-system',
     version: '1.0.0',
     released: '2026-07-17',
     license: 'GPL-3.0-or-later',
@@ -158,7 +158,7 @@ export const software = [
   {
     id: 'ultra-fast-copy',
     name: 'Ultra Fast Copy',
-    category: 'utilities',
+    category: 'file-system',
     version: '0.1.0',
     released: '2026-07-18',
     license: 'MIT',

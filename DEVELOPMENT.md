@@ -1,169 +1,178 @@
-# Codecider Lab Website — 개발 문서
+# Codecider Lab Website — Developer Guide
 
-> 개발 기간: 2026-07-14 · React 19 + Vite 8 · 라이브: https://codeciderluke.github.io/CodeciderLab/
+> Started 2026-07-14 · React 19 + Vite 8 · Live: https://codeciderluke.github.io/CodeciderLab/
 
-## 1. 프로젝트 개요
+## 1. Project Overview
 
-Codecider Lab의 공식 웹사이트. 조직에서 개발한 소프트웨어를 분야별 카테고리로 배포하고,
-각 소프트웨어마다 전용 게시판을 운영해 자유롭게 의견을 나누는 것이 목적이다.
+The official website of Codecider Lab. Its purpose is to distribute the software built by
+the lab across topic-based categories, and to run a dedicated discussion board for each
+piece of software so visitors can share feedback freely.
 
-**브랜드 컨셉** (`CodeCider.png` 기반)
+**Brand concept** (based on `CodeCider.png`)
 
-- **Code + Cider** — 코드와 발효음료의 합성어. 아이디어를 발효시켜 가치 있는 결과로.
-- **Co-Decider** — AI와 사용자가 함께 결정하는 지능형 파트너.
-- 비주얼: 네이비(`#1a2b4a`) + 사이다 그린(`#3faf4e`), 병 안에 Python·C++·JS·React
-  배지가 탄산처럼 떠다니는 병 모티프 로고.
+- **Code + Cider** — a blend of "code" and a fermented drink: ferment ideas into something valuable.
+- **Co-Decider** — an intelligent partner where the AI and the user decide together.
+- Visuals: navy (`#1a2b4a`) + cider green (`#3faf4e`), with a bottle-motif logo in which
+  Python / C++ / JS / React badges float like carbonation bubbles inside the bottle.
 
-## 2. 기술 스택
+## 2. Tech Stack
 
-| 영역 | 선택 | 비고 |
+| Area | Choice | Notes |
 |---|---|---|
-| 프레임워크 | React 19 + Vite 8 | JavaScript (TypeScript 미사용) |
-| 라우팅 | react-router-dom | BrowserRouter + `basename=import.meta.env.BASE_URL` |
-| 다국어 | 자체 Context (`src/i18n/`) | 영문 기본, KO 토글, localStorage 저장 |
-| 게시판 | localStorage | 클라이언트 전용 (서버 백엔드 없음) |
-| 스타일 | 단일 CSS (`src/index.css`) | CSS 변수 기반 디자인 시스템 |
-| 배포 | GitHub Actions → GitHub Pages | main 푸시 시 자동 배포 |
+| Framework | React 19 + Vite 8 | JavaScript (no TypeScript) |
+| Routing | react-router-dom | BrowserRouter + `basename=import.meta.env.BASE_URL` |
+| i18n | Custom Context (`src/i18n/`) | English by default, KO toggle, persisted to localStorage |
+| Boards | localStorage | Client-only (no server backend) |
+| Styling | Single CSS file (`src/index.css`) | CSS-variable design system |
+| Deploy | GitHub Actions → GitHub Pages | Auto-deploy on push to main |
 
-## 3. 프로젝트 구조
+## 3. Project Structure
 
 ```
 codeciderweb/
-├── .github/workflows/deploy.yml   # Pages 자동 배포
-├── public/favicon.svg             # 병 모티프 파비콘
+├── .github/workflows/deploy.yml   # Automatic Pages deploy
+├── public/favicon.svg             # Bottle-motif favicon
 ├── src/
-│   ├── main.jsx                   # Router + LanguageProvider 부트스트랩
-│   ├── App.jsx                    # 라우트 정의, ScrollToTop
-│   ├── index.css                  # 전체 디자인 시스템
+│   ├── main.jsx                   # Router + LanguageProvider bootstrap
+│   ├── App.jsx                    # Route definitions, ScrollToTop
+│   ├── index.css                  # Whole design system
 │   ├── i18n/
-│   │   ├── LanguageContext.jsx    # lang 상태, toggleLang, t() 훅
-│   │   └── translations.js        # EN/KO 문자열 사전
+│   │   ├── LanguageContext.jsx    # lang state, toggleLang, t() hook
+│   │   └── translations.js        # EN/KO string dictionary
 │   ├── data/
-│   │   ├── categories.jsx         # 카테고리 4종 (아이콘 SVG + 컬러), 레거시 id 리다이렉트 맵
-│   │   └── software.js            # 소프트웨어 레지스트리 (이중 언어)
+│   │   ├── categories.jsx         # 6 categories (icon SVG + color), legacy-id redirect map
+│   │   └── software.js            # Software registry (bilingual)
 │   ├── components/
-│   │   ├── Logo.jsx               # 병 로고 (animated 옵션)
+│   │   ├── Logo.jsx               # Bottle logo (animated option)
 │   │   ├── Header.jsx / Footer.jsx
 │   │   ├── CategoryCard.jsx / SoftwareCard.jsx
-│   │   └── Board.jsx              # 게시판 (글/댓글, localStorage)
+│   │   └── Board.jsx              # Board (posts/comments, localStorage)
 │   └── pages/
-│       ├── Home.jsx               # 히어로 → Latest Software → 카테고리
-│       ├── SoftwareIndex.jsx      # 카테고리 목록
-│       ├── CategoryPage.jsx       # 카테고리별 소프트웨어 목록
-│       ├── SoftwareDetail.jsx     # 개요/기능/벤치마크/기술스택 + 토론 탭
+│       ├── Home.jsx               # Hero → Latest Software → Categories
+│       ├── SoftwareIndex.jsx      # Category listing
+│       ├── CategoryPage.jsx       # Software listing per category
+│       ├── SoftwareDetail.jsx     # Overview/features/benchmark/tech stack + discussion tab
 │       ├── BoardsIndex.jsx / BoardPage.jsx
-│       ├── About.jsx              # Why Codecider + 미션/운영/향후계획
+│       ├── About.jsx              # Why Codecider + mission/operations/roadmap
 │       └── NotFound.jsx
 └── vite.config.js                 # base = VITE_BASE (Pages: /CodeciderLab/)
 ```
 
-### 라우트
+### Routes
 
-| 경로 | 페이지 |
+| Path | Page |
 |---|---|
-| `/` | 홈 (히어로, 최신 소프트웨어, 카테고리) |
-| `/software` | 카테고리 목록 |
-| `/software/:categoryId` | 카테고리별 소프트웨어 |
-| `/software/:categoryId/:softwareId` | 상세 (개요 / 토론 탭) |
-| `/software/<옛 카테고리 id>[/:softwareId]` | 현재 id로 리다이렉트 (4.1 참고) |
-| `/boards`, `/boards/:softwareId` | 게시판 목록 / 개별 게시판 |
-| `/about` | 조직 소개 |
+| `/` | Home (hero, latest software, categories) |
+| `/software` | Category listing |
+| `/software/:categoryId` | Software per category |
+| `/software/:categoryId/:softwareId` | Detail (overview / discussion tabs) |
+| `/software/<old category id>[/:softwareId]` | Redirects to the current id (see 4.1) |
+| `/boards`, `/boards/:softwareId` | Board listing / individual board |
+| `/about` | About the organization |
 
-## 4. 주요 기능
+## 4. Key Features
 
-### 4.1 소프트웨어 카테고리 (4종, 전용 아이콘 + 컬러)
+### 4.1 Software Categories (6 types, each with its own icon + color)
 
-`src/data/categories.jsx`의 정의 순서 기준.
+Order follows the definitions in `src/data/categories.jsx`. The taxonomy is unified along a
+single axis — **"what the user does with it" (problem domain)** — into these 6 categories.
 
-| ID | 이름 | 컬러 |
-|---|---|---|
-| `automation` | Work Automation / 업무자동화 | `#3a7bd5` |
-| `multimedia` | Multimedia / 멀티미디어 | `#7c5cd6` |
-| `information` | Information / 정보 | `#e8913a` |
-| `utilities` | Utilities / 유틸리티 | `#46a758` |
-
-`information`은 초기에 `education`(교육)이라는 id로 배포됐다. id를 바꾼 뒤에도 기존
-링크가 살아 있도록 `categories.jsx`의 `legacyCategoryRedirects` 맵에 옛 id를 남겨두고,
-`App.jsx`가 이 맵에서 리다이렉트 라우트를 생성한다. 앞으로 카테고리 id를 바꿀 때도
-같은 방식으로 맵에 한 줄을 추가한다.
-
-### 4.2 다국어 (EN 기본 / KO 전환)
-
-- 헤더의 `EN | KO` 토글 → `LanguageContext`가 전체 UI 문자열 전환
-- 선택 언어는 `localStorage('codecider-lang')`에 저장
-- UI 문자열은 `translations.js`, 소프트웨어 소개문은 `software.js`에
-  `{ en, ko }` 형태로 관리
-
-### 4.3 소프트웨어 상세 페이지
-
-버전·출시일·라이선스·개발 언어 메타, 개요, 주요 기능, 벤치마크, 기술 스택,
-Download / GitHub 버튼. 탭으로 토론 게시판 전환.
-
-**등록된 소프트웨어** (`src/data/software.js` 기준)
-
-| 소프트웨어 | 카테고리 | 라이선스 | 요약 |
+| ID | Name | Color | Scope |
 |---|---|---|---|
-| [ultra-fast-zip](https://github.com/codeciderluke/ultra-fast-zip) | Utilities | MIT | .ufz 포맷 블록 기반 Zstandard 압축 도구 |
-| [human-photo-classifier](https://github.com/codeciderluke/human-photo-classifier) | Multimedia | AGPL-3.0 | YOLOv11 사람 감지로 사진 분류 |
-| [photo-time-classifier](https://github.com/codeciderluke/photo-time-classifier) | Multimedia | AGPL-3.0 | EXIF 촬영 시각 기준 사진 정리 |
-| [Mycom-Information](https://github.com/codeciderluke/Mycom-Information) | Information | GPL-3.0-or-later | PC 하드웨어·소프트웨어 사양 대시보드 |
+| `file-system` | File & System | `#46a758` | Compression, file sorting, system info, everyday utilities |
+| `media` | Media | `#7c5cd6` | Photo / video / audio processing & classification |
+| `automation` | Automation | `#3a7bd5` | RPA, workflows, IoT, smart home, repetitive work/life tasks |
+| `ai` | AI Tools | `#5b6ef5` | LLM agents, chatbots, AI-powered apps |
+| `knowledge` | Information & Learning | `#e8913a` | Reference, dashboards, knowledge, tutorials, education |
+| `experiments` | Experiments & Fun | `#e0559a` | Games, interactive toys, creative experiments |
 
-### 4.4 게시판
+These 6 categories replace the earlier 8-category scheme (`automation`, `multimedia`,
+`information`, `utilities`, `life-automation`, `ai-agent`, `play-toy`, `education`). That
+scheme mixed classification axes, split "automation" three ways, and left many categories
+empty. To keep existing links alive, the old ids are preserved in the
+`legacyCategoryRedirects` map in `categories.jsx` (`utilities`, `information` → `file-system`;
+`multimedia` → `media`; `life-automation` → `automation`; `ai-agent` → `ai`;
+`play-toy` → `experiments`; `education` → `knowledge`), and `App.jsx` generates redirect
+routes from that map. When changing a category id in the future, add one line to the map the
+same way.
 
-- 소프트웨어마다 독립 게시판 (`Board.jsx`, key: `codecider-board-<id>`)
-- 글 작성(이름/제목/본문) + 댓글, 접기/펼치기 목록
-- 현재 localStorage 기반 → 방문자 브라우저별 저장 (서버 연동은 향후 과제)
+### 4.2 Internationalization (EN default / KO toggle)
 
-### 4.5 로고 (`Logo.jsx`)
+- The `EN | KO` toggle in the header → `LanguageContext` switches all UI strings.
+- The selected language is stored in `localStorage('codecider-lang')`.
+- UI strings live in `translations.js`; software copy lives in `software.js` as `{ en, ko }`.
 
-- SVG 병: 그라데이션 유리 + 초록 캡 + 하이라이트
-- 내부에 JS(노랑 사각), Python(블루/옐로 원), React(아톰), C++(파랑 원) 배지와 기포
-- `animated` prop → 배지 bob + 기포 상승 애니메이션 (홈 히어로 전용)
+### 4.3 Software Detail Page
 
-## 5. 배포 파이프라인
+Version / release date / license / language metadata, overview, key features, benchmark,
+tech stack, and Download / GitHub buttons. A tab switches to the discussion board.
 
-1. `main` 푸시 → `.github/workflows/deploy.yml` 실행
-2. `npm ci && npm run build` (`VITE_BASE=/CodeciderLab/`)
-3. `dist/index.html → dist/404.html` 복사 (SPA 딥링크 폴백)
-4. `actions/deploy-pages`로 GitHub Pages 게시
+**Registered software** (per `src/data/software.js`)
 
-로컬 개발: `npm run dev` (http://localhost:5173) · 빌드: `npm run build`
+| Software | Category | License | Summary |
+|---|---|---|---|
+| [ultra-fast-zip](https://github.com/codeciderluke/ultra-fast-zip) | File & System | MIT | Block-based Zstandard compression tool using the .ufz format |
+| [ultra-fast-copy](https://github.com/codeciderluke/ultra-fast-copy) | File & System | MIT | High-performance Windows file copy/move tool (CLI + PySide6 GUI) |
+| [human-photo-classifier](https://github.com/codeciderluke/human-photo-classifier) | Media | AGPL-3.0 | Photo classification via YOLOv11 person detection |
+| [photo-time-classifier](https://github.com/codeciderluke/photo-time-classifier) | Media | AGPL-3.0 | Sorting photos by EXIF capture time |
+| [Mycom-Information](https://github.com/codeciderluke/Mycom-Information) | File & System | GPL-3.0-or-later | PC hardware/software spec dashboard |
 
-## 6. 소프트웨어 추가 방법
+### 4.4 Boards
 
-`src/data/software.js` 배열에 항목 하나만 추가하면 카테고리 목록, 상세 페이지,
-게시판이 자동 생성된다. 필수 필드:
+- An independent board per software (`Board.jsx`, key: `codecider-board-<id>`).
+- Post creation (name/title/body) + comments, with a collapsible/expandable list.
+- Currently localStorage-based → stored per visitor's browser (server integration is future work).
+
+### 4.5 Logo (`Logo.jsx`)
+
+- SVG bottle: gradient glass + green cap + highlight.
+- Inside are JS (yellow square), Python (blue/yellow circles), React (atom), C++ (blue circle) badges and bubbles.
+- The `animated` prop → badge bob + rising-bubble animation (home hero only).
+
+## 5. Deploy Pipeline
+
+1. Push to `main` → `.github/workflows/deploy.yml` runs.
+2. `npm ci && npm run build` (`VITE_BASE=/CodeciderLab/`).
+3. Copy `dist/index.html → dist/404.html` (SPA deep-link fallback).
+4. Publish to GitHub Pages via `actions/deploy-pages`.
+
+Local development: `npm run dev` (http://localhost:5173) · Build: `npm run build`
+
+## 6. How to Add Software
+
+Add a single item to the `src/data/software.js` array and the category listing, detail page,
+and board are generated automatically. Required fields:
 
 ```js
 {
-  id: 'my-tool',            // URL slug + 게시판 key
+  id: 'my-tool',            // URL slug + board key
   name: 'My Tool',
-  category: 'utilities',    // categories.jsx의 id
+  category: 'file-system',  // an id from categories.jsx
   version: '1.0.0', released: 'YYYY-MM-DD',
   license: 'MIT', language: 'Python 3.11+',
   github: '...', downloadUrl: '...',
   summary: { en, ko }, overview: { en, ko },
   features: { en: [...], ko: [...] },
   techStack: [...],
-  benchmark: { en, ko },     // 선택 — 없으면 상세 페이지에서 섹션 자체가 빠짐
+  benchmark: { en, ko },     // optional — the section is dropped from the detail page if absent
 }
 ```
 
-`category`는 반드시 `categories.jsx`에 있는 현재 id여야 한다. `SoftwareDetail`이
-URL의 `categoryId`와 `item.category`가 일치하는지 검사하므로, 옛 id를 넣으면 404가 된다.
+`category` must be a current id from `categories.jsx`. `SoftwareDetail` checks that the URL's
+`categoryId` matches `item.category`, so an old id will 404.
 
-## 7. 개발 이력 요약
+## 7. Development History
 
-1. Vite React 스캐폴드 생성, 사이트 전체 구축 (카테고리/i18n/상세/게시판)
-2. 로고 리디자인 — 병 안에 언어 배지가 떠다니는 컨셉, 헤더 단순화,
-   "Why Codecider?" 섹션을 홈 → About으로 이동
-3. 홈 섹션 순서 변경: Latest Software를 카테고리 위로
-4. GitHub 배포 — 저장소 public 전환, Pages + Actions 파이프라인 구성
-5. 개인정보 제거 — 커밋 이력을 noreply 계정으로 재작성, 템플릿 잔여 파일 정리
+1. Scaffolded the Vite React app and built the whole site (categories / i18n / detail / boards).
+2. Logo redesign — the floating-language-badge-in-a-bottle concept, simplified header,
+   moved the "Why Codecider?" section from Home → About.
+3. Reordered home sections: Latest Software above Categories.
+4. GitHub deploy — made the repo public, set up the Pages + Actions pipeline.
+5. Category rework — replaced the 8-category scheme with the current single-axis 6-category scheme.
 
-## 8. 향후 과제
+## 8. Roadmap
 
-- [ ] 게시판 서버 백엔드 연동 (Firebase/Supabase 등) — 전체 방문자 글 공유
-- [ ] 광고/후원 영역 (운영 방식), 프리미엄 콘텐츠 (전체 소스·설명서 판매)
-- [ ] 소프트웨어 추가 등록 및 카테고리 확충
-- [ ] 커스텀 도메인 연결 (선택)
+- [ ] Board server backend (Firebase/Supabase, etc.) — share posts across all visitors.
+- [ ] Ads/sponsorship area (operating model), premium content (selling full source & docs).
+- [ ] Register more software and expand categories.
+- [ ] Connect a custom domain (optional).

@@ -2,7 +2,7 @@
 
 Codecider Lab Website — *Code + Cider, Co-Decider*
 
-The official website of **Codecider Lab**: we distribute software built by the lab across categories (Work Automation, Multimedia, Information, Utilities), each with its own discussion board. English by default, with a Korean (KO) toggle.
+The official website of **Codecider Lab**: we distribute software built by the lab across categories (File & System, Media, Automation, AI Tools, Information & Learning, Experiments & Fun), each with its own discussion board. English by default, with a Korean (KO) toggle.
 
 ## Tech Stack
 

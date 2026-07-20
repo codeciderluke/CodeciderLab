@@ -11,6 +11,31 @@ const iconProps = {
 
 export const categories = [
   {
+    id: 'file-system',
+    nameKey: 'cat_file_system',
+    descKey: 'cat_file_system_desc',
+    color: '#46a758',
+    icon: (
+      <svg {...iconProps}>
+        <path d="M14.5 6.5a4.2 4.2 0 0 0-5.6 5.2L3.3 17.3a2 2 0 1 0 2.9 2.9l5.6-5.6a4.2 4.2 0 0 0 5.2-5.6l-2.8 2.8-2.5-.7-.7-2.5z" />
+      </svg>
+    ),
+  },
+  {
+    id: 'media',
+    nameKey: 'cat_media',
+    descKey: 'cat_media_desc',
+    color: '#7c5cd6',
+    icon: (
+      <svg {...iconProps}>
+        <rect x="2.5" y="4" width="19" height="16" rx="2.5" />
+        <path d="M2.5 8.5h19" />
+        <path d="M6.5 4v4.5M17.5 4v4.5" />
+        <path d="M10.5 12l4.5 2.75-4.5 2.75z" fill="currentColor" stroke="none" />
+      </svg>
+    ),
+  },
+  {
     id: 'automation',
     nameKey: 'cat_automation',
     descKey: 'cat_automation_desc',
@@ -23,61 +48,9 @@ export const categories = [
     ),
   },
   {
-    id: 'multimedia',
-    nameKey: 'cat_multimedia',
-    descKey: 'cat_multimedia_desc',
-    color: '#7c5cd6',
-    icon: (
-      <svg {...iconProps}>
-        <rect x="2.5" y="4" width="19" height="16" rx="2.5" />
-        <path d="M2.5 8.5h19" />
-        <path d="M6.5 4v4.5M17.5 4v4.5" />
-        <path d="M10.5 12l4.5 2.75-4.5 2.75z" fill="currentColor" stroke="none" />
-      </svg>
-    ),
-  },
-  {
-    id: 'information',
-    nameKey: 'cat_information',
-    descKey: 'cat_information_desc',
-    color: '#e8913a',
-    icon: (
-      <svg {...iconProps}>
-        <circle cx="12" cy="12" r="9" />
-        <path d="M12 11v5.5" />
-        <path d="M12 7.5h.01" />
-      </svg>
-    ),
-  },
-  {
-    id: 'utilities',
-    nameKey: 'cat_utilities',
-    descKey: 'cat_utilities_desc',
-    color: '#46a758',
-    icon: (
-      <svg {...iconProps}>
-        <path d="M14.5 6.5a4.2 4.2 0 0 0-5.6 5.2L3.3 17.3a2 2 0 1 0 2.9 2.9l5.6-5.6a4.2 4.2 0 0 0 5.2-5.6l-2.8 2.8-2.5-.7-.7-2.5z" />
-      </svg>
-    ),
-  },
-  {
-    id: 'life-automation',
-    nameKey: 'cat_life_automation',
-    descKey: 'cat_life_automation_desc',
-    color: '#14a89a',
-    icon: (
-      <svg {...iconProps}>
-        <path d="M3.8 11.2 12 4l8.2 7.2" />
-        <path d="M6 10v9.2h12V10" />
-        <path d="M10 19.2v-4.4h4v4.4" />
-        <circle cx="12" cy="9.6" r="0.9" fill="currentColor" stroke="none" />
-      </svg>
-    ),
-  },
-  {
-    id: 'ai-agent',
-    nameKey: 'cat_ai_agent',
-    descKey: 'cat_ai_agent_desc',
+    id: 'ai',
+    nameKey: 'cat_ai',
+    descKey: 'cat_ai_desc',
     color: '#5b6ef5',
     icon: (
       <svg {...iconProps}>
@@ -92,9 +65,22 @@ export const categories = [
     ),
   },
   {
-    id: 'play-toy',
-    nameKey: 'cat_play_toy',
-    descKey: 'cat_play_toy_desc',
+    id: 'knowledge',
+    nameKey: 'cat_knowledge',
+    descKey: 'cat_knowledge_desc',
+    color: '#e8913a',
+    icon: (
+      <svg {...iconProps}>
+        <path d="M12 4 2.5 8.5 12 13l9.5-4.5z" />
+        <path d="M6.5 10.8v3.9c0 1.4 2.5 2.5 5.5 2.5s5.5-1.1 5.5-2.5v-3.9" />
+        <path d="M21.5 8.5v4" />
+      </svg>
+    ),
+  },
+  {
+    id: 'experiments',
+    nameKey: 'cat_experiments',
+    descKey: 'cat_experiments_desc',
     color: '#e0559a',
     icon: (
       <svg {...iconProps}>
@@ -107,23 +93,18 @@ export const categories = [
       </svg>
     ),
   },
-  {
-    id: 'education',
-    nameKey: 'cat_education',
-    descKey: 'cat_education_desc',
-    color: '#d1495b',
-    icon: (
-      <svg {...iconProps}>
-        <path d="M12 4 2.5 8.5 12 13l9.5-4.5z" />
-        <path d="M6.5 10.8v3.9c0 1.4 2.5 2.5 5.5 2.5s5.5-1.1 5.5-2.5v-3.9" />
-        <path d="M21.5 8.5v4" />
-      </svg>
-    ),
-  },
 ]
 
 // Category ids that shipped under an earlier name. Kept so existing links stay valid.
-export const legacyCategoryRedirects = {}
+export const legacyCategoryRedirects = {
+  utilities: 'file-system',
+  information: 'file-system',
+  multimedia: 'media',
+  'life-automation': 'automation',
+  'ai-agent': 'ai',
+  'play-toy': 'experiments',
+  education: 'knowledge',
+}
 
 export function getCategory(id) {
   return categories.find((c) => c.id === id)
