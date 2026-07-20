@@ -239,6 +239,46 @@ export const software = [
     },
     techStack: ['Python', 'PySide6', 'Scapy', 'SQLite'],
   },
+  {
+    id: 'openllm-analyzer',
+    name: 'openLLM Analyzer',
+    category: 'ai',
+    version: '1.0.0',
+    released: '2026-07-20',
+    license: 'MIT',
+    language: 'Python 3.11+',
+    github: 'https://github.com/codeciderluke/openLLM-Analyzer',
+    downloadUrl: 'https://github.com/codeciderluke/openLLM-Analyzer/releases',
+    summary: {
+      en: 'A read-only desktop GUI that inspects LLMs registered on an Ollama server — and external GGUF/Modelfile files — reporting architecture, lineage, fine-tuning traces, and RAG suitability, with every conclusion evidence-based rather than guessed.',
+      ko: 'Ollama 서버에 등록된 LLM과 외부 GGUF/Modelfile 파일을 검사하는 읽기 전용 데스크톱 GUI. 아키텍처·계보·파인튜닝 흔적·RAG 적합성을 추측이 아닌 근거 기반으로 리포트합니다.',
+    },
+    overview: {
+      en: 'openLLM Analyzer (the Ollama Model & RAG Inspector) is a read-only PySide6 desktop app that inspects models registered on an Ollama server, plus external GGUF files and Modelfiles on disk. It reports basic info, architecture metadata, Modelfile configuration, model lineage, fine-tuning traces, and RAG role-suitability — and every fact is labeled Confirmed / Derived / Detected / Declared / Unknown / Conflict, so unverifiable details stay Unknown instead of being guessed. It is deliberately safe: no pull/create/delete/copy, no Modelfile edits, and no inference — only the Ollama /api/tags, /api/show, and optional /api/ps endpoints are called. Nothing is hardcoded to a specific model, so unknown architectures still surface their raw metadata; external .gguf files are parsed in pure Python (header + KV metadata only, never weights). Results export to JSON and Markdown. The UI never freezes — all HTTP and analysis run on a QThreadPool with a request-ID guard that discards stale results when you switch models quickly — and it ships with a dark/light theme toggle. It stays lightweight, with no torch, transformers, or langchain — just PySide6, httpx, and pydantic. Released under the MIT license.',
+      ko: 'openLLM Analyzer(Ollama 모델 & RAG Inspector)는 Ollama 서버에 등록된 모델과 디스크의 외부 GGUF 파일·Modelfile을 검사하는 읽기 전용 PySide6 데스크톱 앱입니다. 기본 정보, 아키텍처 메타데이터, Modelfile 설정, 모델 계보, 파인튜닝 흔적, RAG 역할 적합성을 리포트하며, 모든 사실에 Confirmed / Derived / Detected / Declared / Unknown / Conflict 라벨을 붙여 검증 불가한 항목은 추측 대신 Unknown으로 남깁니다. 의도적으로 안전하게 설계되어 pull/create/delete/copy, Modelfile 편집, 추론을 일절 하지 않고 Ollama의 /api/tags·/api/show·(선택)/api/ps 엔드포인트만 호출합니다. 특정 모델 이름을 하드코딩하지 않아 알 수 없는 아키텍처도 원본 메타데이터를 그대로 보여주며, 외부 .gguf 파일은 순수 파이썬으로 헤더·KV 메타데이터만 파싱합니다(가중치는 읽지 않음). 결과는 JSON과 Markdown으로 내보낼 수 있습니다. 모든 HTTP·분석이 QThreadPool에서 실행되고 요청 ID 가드가 모델을 빠르게 전환할 때 낡은 결과를 폐기해 UI가 멈추지 않으며, 다크/라이트 테마 토글을 제공합니다. torch·transformers·langchain 없이 PySide6·httpx·pydantic만으로 가볍게 동작합니다. MIT 라이선스로 배포됩니다.',
+    },
+    features: {
+      en: [
+        'Inspects Ollama-registered models via read-only /api/tags, /api/show, /api/ps only',
+        'Analyzes architecture, Modelfile config, lineage, fine-tuning traces, and RAG suitability',
+        'Evidence-based labeling: Confirmed / Derived / Detected / Declared / Unknown / Conflict',
+        'External models: parses local .gguf metadata and Modelfiles in pure Python (no weights)',
+        'Model-agnostic — unknown architectures still surface their raw metadata',
+        'JSON and Markdown report export',
+        'Responsive QThreadPool UI with a dark/light theme toggle; no torch/transformers/langchain',
+      ],
+      ko: [
+        '읽기 전용 /api/tags·/api/show·/api/ps만으로 Ollama 등록 모델 검사',
+        '아키텍처·Modelfile 설정·계보·파인튜닝 흔적·RAG 적합성 분석',
+        '근거 기반 라벨링: Confirmed / Derived / Detected / Declared / Unknown / Conflict',
+        '외부 모델: 로컬 .gguf 메타데이터·Modelfile을 순수 파이썬으로 파싱(가중치 미로드)',
+        '모델 비종속 — 알 수 없는 아키텍처도 원본 메타데이터 표시',
+        'JSON·Markdown 리포트 내보내기',
+        'QThreadPool 기반 반응형 UI, 다크/라이트 테마 토글, torch/transformers/langchain 불필요',
+      ],
+    },
+    techStack: ['Python', 'PySide6', 'httpx', 'pydantic'],
+  },
 ]
 
 export function getSoftware(id) {

@@ -117,6 +117,7 @@ tech stack, and Download / GitHub buttons. A tab switches to the discussion boar
 | [photo-time-classifier](https://github.com/codeciderluke/photo-time-classifier) | Media | AGPL-3.0 | Sorting photos by EXIF capture time |
 | [Mycom-Information](https://github.com/codeciderluke/Mycom-Information) | File & System | GPL-3.0-or-later | PC hardware/software spec dashboard |
 | [My-Network-Monitor](https://github.com/codeciderluke/My-Network-Monitor) | File & System | MIT | Real-time Windows network traffic monitor (PySide6) |
+| [openLLM-Analyzer](https://github.com/codeciderluke/openLLM-Analyzer) | AI Tools | MIT | Read-only inspector for Ollama models & GGUF/Modelfiles |
 
 ### 4.4 Boards
 
