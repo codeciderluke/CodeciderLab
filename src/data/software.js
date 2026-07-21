@@ -279,6 +279,48 @@ export const software = [
     },
     techStack: ['Python', 'PySide6', 'httpx', 'pydantic'],
   },
+  {
+    id: 'document-translator',
+    name: 'Document Translator',
+    category: 'automation',
+    version: '1.0.0',
+    released: '2026-07-21',
+    license: 'MIT (frontend)',
+    language: 'TypeScript / React · Python 3.12',
+    github: 'https://github.com/codeciderluke/Document-Translator',
+    downloadUrl: 'https://github.com/codeciderluke/Document-Translator/releases',
+    summary: {
+      en: 'A local web app that translates text and whole documents between English, Japanese, Korean, and Chinese in any direction — upload, edit side by side, then export to TXT/DOCX/PDF with the original layout preserved.',
+      ko: '영어·일본어·한국어·중국어 간 자유로운 상호 번역을 지원하는 로컬 웹 앱. 텍스트나 문서를 올려 나란히 편집한 뒤 원본 레이아웃을 유지한 채 TXT/DOCX/PDF로 내보냅니다.',
+    },
+    overview: {
+      en: 'Document Translator runs entirely on your own machine — no installation and no API key. Unzip the release, double-click run.bat, and a local server opens the app in your browser at localhost:8000; the prebuilt binary bundles the frontend, so nothing else needs to be set up. It handles mutual translation among English, Japanese, Korean, and Chinese (Simplified/Traditional) with a swap button. Text is translated paragraph by paragraph with side-by-side editing, autosave, and a progress indicator. Documents are uploaded by drag and drop with byte-level progress, then processed in the background as jobs with real-time progress: TXT, DOCX, text PDF, scanned PDF via OCR, and HWPX are supported, with DOC handled through LibreOffice conversion. Results can be reviewed in Separated (per-paragraph) or Continuous (flowing text) editing modes, then exported as TXT, DOCX, or PDF in three layouts — or printed from the browser — with optional original-layout preservation via DOCX in-place text replacement and PDF coordinate overlay. Job history, glossaries for fixed terminology, and a dark/light theme round it out. Documents never leave your machine; only the translation itself uses an online engine. The frontend source is MIT-licensed and the backend ships as a closed-source local binary that deliberately avoids AGPL dependencies such as PyMuPDF.',
+      ko: 'Document Translator는 설치도 API 키도 없이 전적으로 사용자 PC에서 동작합니다. 릴리스를 압축 해제하고 run.bat을 실행하면 로컬 서버가 브라우저의 localhost:8000에서 앱을 열어 주며, 빌드된 바이너리가 프론트엔드까지 포함하고 있어 별도 설정이 필요 없습니다. 영어·일본어·한국어·중국어(간체/번체) 간 상호 번역을 지원하고 방향 전환 버튼을 제공합니다. 텍스트는 문단 단위로 번역되며 좌우 나란히 편집, 자동 저장, 진행률 표시를 지원합니다. 문서는 드래그 앤 드롭으로 업로드하면서 바이트 단위 진행률을 보여주고, 백그라운드 작업으로 처리하며 실시간 진행 상황을 확인할 수 있습니다. TXT, DOCX, 텍스트 PDF, 스캔 PDF(OCR), HWPX를 지원하고 DOC는 LibreOffice 변환으로 처리합니다. 결과는 분리형(문단별) 또는 연속형(흐르는 텍스트) 편집 모드로 검토한 뒤 TXT·DOCX·PDF(3가지 레이아웃)로 내보내거나 브라우저에서 인쇄할 수 있으며, DOCX 인플레이스 텍스트 치환과 PDF 좌표 오버레이로 원본 레이아웃 보존을 선택할 수 있습니다. 작업 이력, 고정 용어를 위한 용어집, 다크/라이트 테마도 제공합니다. 문서는 PC를 벗어나지 않으며 번역 자체만 온라인 엔진을 사용합니다. 프론트엔드 소스는 MIT 라이선스이고, 백엔드는 PyMuPDF 같은 AGPL 의존성을 의도적으로 배제한 클로즈드 소스 로컬 바이너리로 제공됩니다.',
+    },
+    features: {
+      en: [
+        'Mutual translation among English, Japanese, Korean, and Chinese (Simplified/Traditional) with a swap button',
+        'Text mode — paragraph-level translation, side-by-side editing, autosave, progress indicator',
+        'Document mode — drag-and-drop upload with byte progress, background jobs, real-time progress',
+        'Formats: TXT, DOCX, text PDF, scanned PDF (OCR), HWPX; DOC via LibreOffice conversion',
+        'Separated (per-paragraph) or Continuous editing modes for reviewing results',
+        'Export to TXT / DOCX / PDF (three layouts) or print, with optional original-layout preservation',
+        'Job history, glossaries for fixed terminology, dark / light theme',
+        'Runs locally — no installation, no API key; documents are processed on your own machine',
+      ],
+      ko: [
+        '영어·일본어·한국어·중국어(간체/번체) 상호 번역, 방향 전환 버튼 제공',
+        '텍스트 모드 — 문단 단위 번역, 좌우 나란히 편집, 자동 저장, 진행률 표시',
+        '문서 모드 — 바이트 진행률이 표시되는 드래그 앤 드롭 업로드, 백그라운드 작업, 실시간 진행 상황',
+        '지원 포맷: TXT, DOCX, 텍스트 PDF, 스캔 PDF(OCR), HWPX; DOC는 LibreOffice 변환',
+        '결과 검토용 분리형(문단별) / 연속형 편집 모드',
+        'TXT / DOCX / PDF(3가지 레이아웃) 내보내기 또는 인쇄, 원본 레이아웃 보존 선택 가능',
+        '작업 이력, 고정 용어 용어집, 다크/라이트 테마',
+        '설치와 API 키 없이 로컬 실행 — 문서는 사용자 PC에서 처리',
+      ],
+    },
+    techStack: ['React', 'TypeScript', 'Vite', 'Tailwind', 'FastAPI', 'Python', 'SQLAlchemy', 'PyInstaller'],
+  },
 ]
 
 export function getSoftware(id) {

@@ -118,6 +118,7 @@ tech stack, and Download / GitHub buttons. A tab switches to the discussion boar
 | [Mycom-Information](https://github.com/codeciderluke/Mycom-Information) | File & System | GPL-3.0-or-later | PC hardware/software spec dashboard |
 | [My-Network-Monitor](https://github.com/codeciderluke/My-Network-Monitor) | File & System | MIT | Real-time Windows network traffic monitor (PySide6) |
 | [openLLM-Analyzer](https://github.com/codeciderluke/openLLM-Analyzer) | AI Tools | MIT | Read-only inspector for Ollama models & GGUF/Modelfiles |
+| [Document-Translator](https://github.com/codeciderluke/Document-Translator) | Automation | MIT (frontend) | Local EN/JA/KO/ZH text & document translator with layout-preserving export |
 
 ### 4.4 Boards
 
