@@ -323,6 +323,48 @@ export const software = [
     },
     techStack: ['React', 'TypeScript', 'Vite', 'Tailwind', 'FastAPI', 'Python', 'SQLAlchemy', 'PyInstaller'],
   },
+  {
+    id: 'smart-pdf-editor',
+    name: 'Smart PDF Editor',
+    category: 'automation',
+    version: '1.0.0',
+    released: '2026-07-21',
+    license: 'MIT',
+    language: 'Python 3.12',
+    github: 'https://github.com/codeciderluke/Smart-PDF-Editor',
+    downloadUrl: 'https://github.com/codeciderluke/Smart-PDF-Editor/releases',
+    summary: {
+      en: 'A dark-themed desktop PDF editor built on PySide6, PDFium, and pikepdf — annotate, edit text, OCR, and export from a fast, zoomable canvas, with every change kept as an undoable overlay.',
+      ko: 'PySide6·PDFium·pikepdf 기반의 다크 테마 데스크톱 PDF 편집기. 빠른 확대/축소 캔버스에서 주석·텍스트 편집·OCR·내보내기를 처리하며, 모든 변경은 되돌릴 수 있는 오버레이로 유지됩니다.',
+    },
+    overview: {
+      en: 'Smart PDF Editor (Codecider PDF Editor) opens multi-page PDFs across document tabs with a thumbnail sidebar, zoom, fit-to-width/page, rotation, and 4K / high-DPI awareness. Annotation tools cover rectangles, lines, arrows, freehand pen, and highlighter with adjustable color and width; text can be typed directly onto the page with font, size, and color control, and existing text can be selected, copied, or replaced via cover + retype. A region clipboard lets you drag a rectangle to copy, cut, or paste — including images pasted from other applications — while the eraser works freehand or by covering a rectangle. Images can be inserted and pages cropped, and scanned PDFs can be OCR\'d with Tesseract. Every edit is non-destructive: changes are held as overlays and committed to the PDF only on save or export, so undo/redo always works. Export options include save, flatten, AES-256 password protection, merge, and split. The codebase follows a clean MVC split that keeps business logic free of Qt widget code, with the PDF engine shipped as a Qt-free prebuilt binary module. Note that the Cover tool is not redaction — it hides content visually, but the underlying text remains extractable. Released under the MIT license.',
+      ko: 'Smart PDF Editor(Codecider PDF Editor)는 여러 페이지 PDF를 문서 탭으로 열고 썸네일 사이드바, 확대/축소, 너비·페이지 맞춤, 회전을 제공하며 4K·고DPI 환경에 대응합니다. 주석 도구로 사각형, 선, 화살표, 자유 곡선 펜, 형광펜을 색상·굵기 조절과 함께 사용할 수 있고, 글꼴·크기·색상을 지정해 페이지에 직접 텍스트를 입력하거나 기존 텍스트를 선택·복사하고 덮은 뒤 다시 입력해 교체할 수 있습니다. 영역 클립보드로 사각형을 드래그해 복사·잘라내기·붙여넣기를 할 수 있으며 다른 프로그램에서 복사한 이미지도 붙여넣을 수 있고, 지우개는 자유 곡선 브러시 또는 사각형 덮기로 동작합니다. 이미지 삽입과 페이지 자르기를 지원하고, 스캔된 PDF는 Tesseract로 OCR할 수 있습니다. 모든 편집은 비파괴적으로, 변경 사항을 오버레이로 유지하다가 저장·내보내기 시점에만 PDF에 반영하므로 실행 취소/다시 실행이 항상 가능합니다. 내보내기는 저장, 병합(flatten), AES-256 암호 보호, 문서 병합, 분할을 지원합니다. 코드베이스는 비즈니스 로직을 Qt 위젯 코드와 분리하는 MVC 구조를 따르며, PDF 엔진은 Qt에 의존하지 않는 사전 빌드 바이너리 모듈로 제공됩니다. 다만 덮기(Cover) 도구는 편집(redaction)이 아니어서 내용을 시각적으로 가릴 뿐 아래의 텍스트는 그대로 추출될 수 있습니다. MIT 라이선스로 배포됩니다.',
+    },
+    features: {
+      en: [
+        'Multi-page viewing — document tabs, thumbnail sidebar, zoom, fit, rotation, 4K/high-DPI aware',
+        'Annotation tools — rectangle, line, arrow, freehand pen, highlighter with color and width control',
+        'Text editing — type onto the page, select and copy existing text, replace via cover + retype',
+        'Region clipboard — drag to copy, cut, or paste, including images from other applications',
+        'Eraser (freehand brush or rectangle cover), image insertion, and page cropping',
+        'OCR for scanned PDFs with Tesseract',
+        'Non-destructive overlay model — full undo/redo, committed only on save/export',
+        'Export — save, flatten, AES-256 password protection, merge, and split',
+      ],
+      ko: [
+        '다중 페이지 보기 — 문서 탭, 썸네일 사이드바, 확대/축소, 맞춤, 회전, 4K·고DPI 대응',
+        '주석 도구 — 사각형, 선, 화살표, 자유 곡선 펜, 형광펜(색상·굵기 조절)',
+        '텍스트 편집 — 페이지에 직접 입력, 기존 텍스트 선택·복사, 덮기 후 재입력으로 교체',
+        '영역 클립보드 — 드래그로 복사·잘라내기·붙여넣기, 타 프로그램의 이미지도 지원',
+        '지우개(자유 곡선 브러시 또는 사각형 덮기), 이미지 삽입, 페이지 자르기',
+        'Tesseract 기반 스캔 PDF OCR',
+        '비파괴 오버레이 모델 — 전체 실행 취소/다시 실행, 저장·내보내기 시에만 반영',
+        '내보내기 — 저장, 플래튼, AES-256 암호 보호, 병합, 분할',
+      ],
+    },
+    techStack: ['Python', 'PySide6', 'pypdfium2', 'pikepdf', 'Pillow', 'Tesseract'],
+  },
 ]
 
 export function getSoftware(id) {

@@ -119,6 +119,7 @@ tech stack, and Download / GitHub buttons. A tab switches to the discussion boar
 | [My-Network-Monitor](https://github.com/codeciderluke/My-Network-Monitor) | File & System | MIT | Real-time Windows network traffic monitor (PySide6) |
 | [openLLM-Analyzer](https://github.com/codeciderluke/openLLM-Analyzer) | AI Tools | MIT | Read-only inspector for Ollama models & GGUF/Modelfiles |
 | [Document-Translator](https://github.com/codeciderluke/Document-Translator) | Automation | MIT (frontend) | Local EN/JA/KO/ZH text & document translator with layout-preserving export |
+| [Smart-PDF-Editor](https://github.com/codeciderluke/Smart-PDF-Editor) | Automation | MIT | Dark-themed desktop PDF editor (PySide6 + PDFium + pikepdf) |
 
 ### 4.4 Boards
 
